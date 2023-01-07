@@ -28,13 +28,13 @@ async def on_message(message):
             response_code = response.status_code
             if response_code == 200:
                 await message.channel.send('#Starting the Benzene Server!  ٩(＾◡＾)۶')
-                await message.channel.send(file=discord.File('..\\Additional Files\\creeper_chan_smile.jpg'))
+                await message.channel.send(file=discord.File('../Additional Files/creeper_chan_smile.jpg'))
             else:
                 await message.channel.send('#Unable to start the server! ( •_•)')
-                await message.channel.send(file=discord.File('..\\Additional Files\\404_chan.png'))
+                await message.channel.send(file=discord.File('../Additional Files/404_chan.png'))
         except:
             await message.channel.send('#Unable to start the server! ( •_•)')
-            await message.channel.send(file=discord.File('..\\Additional Files\\404_chan.png'))
+            await message.channel.send(file=discord.File('../Additional Files/404_chan.png'))
             
         
 
@@ -46,13 +46,13 @@ async def on_message(message):
             response_code = response.status_code
             if response_code == 200:
                 await message.channel.send('#Shutting Down the Benzene Server! (>﹏<)')
-                await message.channel.send(file=discord.File('..\\Additional Files\\creeper_chan_goodbye.jpg')) 
+                await message.channel.send(file=discord.File('../Additional Files/creeper_chan_goodbye.jpg')) 
             else:
                 await message.channel.send('#Unable to stop the server! ( •_•)')
-                await message.channel.send(file=discord.File('..\\Additional Files\\404_chan.png'))
+                await message.channel.send(file=discord.File('../Additional Files/404_chan.png'))
         except:
             await message.channel.send('#Unable to stop the server! ( •_•)')
-            await message.channel.send(file=discord.File('..\\Additional Files\\404_chan.png'))
+            await message.channel.send(file=discord.File('../Additional Files/404_chan.png'))
          
 
     if message.content.startswith('$status'):
@@ -65,11 +65,12 @@ async def on_message(message):
             if response == 0:
                 await message.channel.send('#The Benzene Server is up!  ( ͡° ͜ʖ ͡°)')
                 await message.channel.send('#There are currently {0} {1} online!'.format(server.status().players.online, 'player' if server.status().players.online == 1 else 'players' ))
-                await message.channel.send(file=discord.File('..\\Additional Files\\creeper_chan_smile.jpg'))
+                await message.channel.send(file=discord.File('../Additional Files/creeper_chan_smile.jpg'))
             else:
                 await message.channel.send('#The Benzene Server is down!  (ಥ _ ಥ)')
-                await message.channel.send(file=discord.File('..\\Additional Files\\404_chan.png'))
+                await message.channel.send(file=discord.File('../Additional Files/404_chan.png'))
         except TimeoutError:
             pass
+        
 client.run(MChan_Token)
 
