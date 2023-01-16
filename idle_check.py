@@ -57,9 +57,9 @@ def findLastUp(conn):
         
 def findDeltaTime(lastUps): 
 
-    if lastUps == []:
+    if lastUps == [] or lastUps == None:
         print("server has not been up ")
-        return
+        return datetime.timedelta(minutes=0)
 
     last = datetime.datetime.strptime(lastUps[-1][2], "%Y-%m-%d %H:%M:%S.%f")
     first = datetime.datetime.strptime(lastUps[0][2], "%Y-%m-%d %H:%M:%S.%f")
@@ -67,7 +67,10 @@ def findDeltaTime(lastUps):
     print(diff)
     return diff
     
-
+def pruneDB(conn):
+    cur = conn.cursor()
+    cur.execute("DELETE FROM time_log WHERE id NOT IN (SELECT id FROM time_log ORDER BY time_stamp DESC LIMIT 100)")
+    conn.commit()
 
 if __name__ == '__main__':
     conn = createDB()

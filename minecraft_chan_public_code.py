@@ -34,6 +34,7 @@ def thread_idle_check():
         if diff > datetime.timedelta(minutes=10):
             isSuccess = use_authed_url(stop_url, stop_session_creds)
 
+        pruneDB(conn)
         print("one thread loop")
         time.sleep(30)
 
